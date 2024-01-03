@@ -6,9 +6,6 @@ services:
     container_name: hapi-fhir-server
     ports:
       - "8080:8080"
-    configs:
-      - source: hapi
-        target: /app/config/application.yaml
     depends_on:
       - hapi-fhir-postgres
   hapi-fhir-postgres:
@@ -25,7 +22,3 @@ services:
       - ./postgres_data:/var/lib/postgresql/data
 volumes:
   hapi-fhir-postgres:
-
-configs:
-  hapi:
-    file: ./hapi.application.yaml
